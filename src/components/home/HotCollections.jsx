@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -57,11 +57,7 @@ const HotCollections = () => {
                   >
                     <div className="nft_coll">
                       <div className="nft_wrap">
-                        <Skeleton
-                          width="100%"
-                          height="200px"
-                          borderRadius="0"
-                        />
+                        <Skeleton width="100%" height="200px" />
                       </div>
                       <div className="nft_coll_pp">
                         <Skeleton
@@ -72,13 +68,9 @@ const HotCollections = () => {
                         <i className="fa fa-check"></i>
                       </div>
                       <div className="nft_coll_info">
-                        <Skeleton
-                          width="100px"
-                          height="20px"
-                          borderRadius="0"
-                        />
+                        <Skeleton width="100px" height="20px" />
                         <br />
-                        <Skeleton width="60px" height="20px" borderRadius="0" />
+                        <Skeleton width="60px" height="20px" />
                       </div>
                     </div>
                   </div>
