@@ -52,7 +52,7 @@ const HotCollections = () => {
                 {new Array(5).fill(0).map((_, i) => (
                   <div
                     className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-                    style={{ width: "100%", maxWidth: "100%" }}
+                    style={{ width: "100%", maxWidth: "100%", padding: "0"}}
                     key={i}
                   >
                     <div className="nft_coll">
@@ -86,7 +86,7 @@ const HotCollections = () => {
                     code={collection.code}
                     nftId={collection.nftId}
                     authorId={collection.authorId}
-                    key={i}
+                    key={collection.id}
                   />
                 ))}
               </>
