@@ -89,6 +89,8 @@ const NewItems = () => {
                     likes={item.likes}
                     expiryDate={item.expiryDate}
                     key={item.id}
+                    nftId={item.nftId}
+                    authorId={item.authorId}
                   />
                 ))}
               </>

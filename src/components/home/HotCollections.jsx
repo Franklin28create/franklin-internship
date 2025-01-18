@@ -84,6 +84,8 @@ const HotCollections = () => {
                     authorImage={collection.authorImage}
                     title={collection.title}
                     code={collection.code}
+                    nftId={collection.nftId}
+                    authorId={collection.authorId}
                     key={i}
                   />
                 ))}

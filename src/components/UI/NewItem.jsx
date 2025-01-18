@@ -8,6 +8,8 @@ const NewItem = ({
   price,
   likes,
   expiryDate,
+  nftId,
+  authorId,
 }) => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -23,10 +25,9 @@ const NewItem = ({
     setMinutes(Math.floor(minsLeft) % 60);
     setHours(Math.floor(hoursLeft));
   }
-
-  useEffect(() => {
-    expiryDate && setInterval(getExpirationDate, 1000);
-  }, []);
+useEffect(() => {
+  expiryDate && setInterval(getExpirationDate, 1000);
+}, [])
 
   return (
     <div
@@ -36,16 +37,19 @@ const NewItem = ({
       <div className="nft__item">
         <div className="author_list_pp">
           <Link
-            to="/author"
+            to={`/author/${authorId}`}
             data-bs-toggle="tooltip"
             data-bs-placement="top"
-            title="Creator: Monica Lucas"
           >
             <img className="lazy" src={authorImage} alt="" />
             <i className="fa fa-check"></i>
           </Link>
         </div>
-        {expiryDate && <div className="de_countdown">{hours}h {minutes}m {seconds}s</div>}  
+        {expiryDate && (
+          <div className="de_countdown">
+            {hours}h {minutes}m {seconds}s
+          </div>
+        )}
         <div className="nft__item_wrap">
           <div className="nft__item_extra">
             <div className="nft__item_buttons">
@@ -65,12 +69,12 @@ const NewItem = ({
             </div>
           </div>
 
-          <Link to="/item-details">
+          <Link to={`/item-details${nftId}`}>
             <img src={nftImage} className="lazy nft__item_preview" alt="" />
           </Link>
         </div>
         <div className="nft__item_info">
-          <Link to="/item-details">
+          <Link to={`/item-details/${nftId}`}>
             <h4>{title}</h4>
           </Link>
           <div className="nft__item_price">{price}</div>
