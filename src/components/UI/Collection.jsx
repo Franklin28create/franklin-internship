@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const NewItem = ({
+const Collection = ({
   authorImage,
   nftImage,
   title,
@@ -10,10 +10,14 @@ const NewItem = ({
   expiryDate,
   nftId,
   authorId,
+  width,
+  maxWidth,
+  padding,
 }) => {
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
+  const [hours, setHours] = useState(null);
+  const [minutes, setMinutes] = useState(null);
+  const [seconds, setSeconds] = useState(null);
+  const [expirationExists, setExpirationExists] = useState(false);
 
   function getExpirationDate() {
     const millisLeft = expiryDate - Date.now();
@@ -24,15 +28,25 @@ const NewItem = ({
     setSeconds(Math.floor(secondsLeft) % 60);
     setMinutes(Math.floor(minsLeft) % 60);
     setHours(Math.floor(hoursLeft));
+
+    return true;
   }
-useEffect(() => {
-  expiryDate && setInterval(getExpirationDate, 1000);
-}, [])
+
+  useEffect(() => {
+    if (expiryDate) {
+      let intervalId = setInterval(getExpirationDate, 1000);
+      if(getExpirationDate()) {
+        setExpirationExists(true);
+      }
+      return () => clearInterval(intervalId);
+    }
+
+  }, []);
 
   return (
     <div
       className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-      style={{ width: "100%", maxWidth: "100%", padding: "0" }}
+      style={{ width, maxWidth, padding }}
     >
       <div className="nft__item">
         <div className="author_list_pp">
@@ -45,7 +59,7 @@ useEffect(() => {
             <i className="fa fa-check"></i>
           </Link>
         </div>
-        {expiryDate && (
+        {expirationExists && (
           <div className="de_countdown">
             {hours}h {minutes}m {seconds}s
           </div>
@@ -69,7 +83,7 @@ useEffect(() => {
             </div>
           </div>
 
-          <Link to={`/item-details${nftId}`}>
+          <Link to={`/item-details/${nftId}`}>
             <img src={nftImage} className="lazy nft__item_preview" alt="" />
           </Link>
         </div>
@@ -88,4 +102,4 @@ useEffect(() => {
   );
 };
 
-export default NewItem;
+export default Collection;
