@@ -1,20 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const HotCollection = ({ nftImage, authorImage, title, code }) => {
+const HotCollection = ({
+  nftImage,
+  authorImage,
+  title,
+  code,
+  nftId,
+  authorId,
+}) => {
   return (
     <div
       className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-      style={{ width: "100%", maxWidth: "100%", padding: "0"}}
+      style={{ width: "100%", maxWidth: "100%", padding: "0" }}
     >
       <div className="nft_coll">
         <div className="nft_wrap">
-          <Link to="/item-details">
+          <Link to={`/item-details/${nftId}`}>
             <img src={nftImage} className="lazy img-fluid" alt="" />
           </Link>
         </div>
         <div className="nft_coll_pp">
-          <Link to="/author">
+          <Link to={`/author/${authorId}`}>
             <img className="lazy pp-coll" src={authorImage} alt="" />
           </Link>
           <i className="fa fa-check"></i>
