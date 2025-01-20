@@ -15,6 +15,7 @@ const Author = () => {
   const [followers, setFollowers] = useState("");
   const [nftCollection, setNftCollection] = useState([]);
   const [tag, setTag] = useState("");
+
   const [loading, setLoading] = useState(true);
 
   async function fetchAuthor() {
@@ -32,6 +33,7 @@ const Author = () => {
 
   useEffect(() => {
     fetchAuthor();
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -107,6 +109,7 @@ const Author = () => {
                     <AuthorItems
                       nftCollection={nftCollection}
                       authorImage={authorImage}
+                      authorId={authorId}
                     />
                   )}
                 </div>
