@@ -9,6 +9,8 @@ const ExploreItems = () => {
   const [itemsList, setItemsList] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Added new line of code
+
   async function fetchExploreItems(filterValue) {
     if (filterValue) {
       setLoading(true);
