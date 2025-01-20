@@ -5,6 +5,9 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import HotCollection from "../UI/HotCollection";
 import Skeleton from "../UI/Skeleton";
+import Aos from "aos";
+import "aos/dist/aos.css";
+Aos.init();
 
 const HotCollections = () => {
   const [hotCollections, setHotCollections] = useState([]);
@@ -28,13 +31,17 @@ const HotCollections = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Hot Collections</h2>
+              <h2 data-aos="zoom-in" data-aos-duration="700">
+                Hot Collections
+              </h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
           <OwlCarousel
             className="owl-theme"
             loop
+            data-aos="fade-up"
+            data-aos-duration="700"
             nav
             key={loading}
             dots={false}
@@ -52,7 +59,7 @@ const HotCollections = () => {
                 {new Array(5).fill(0).map((_, i) => (
                   <div
                     className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-                    style={{ width: "100%", maxWidth: "100%", padding: "0"}}
+                    style={{ width: "100%", maxWidth: "100%", padding: "0" }}
                     key={i}
                   >
                     <div className="nft_coll">

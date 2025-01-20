@@ -1,11 +1,14 @@
 import React from "react";
 import Skeleton from "./Skeleton";
+import Aos from "aos";
+import "aos/dist/aos.css";
+Aos.init();
 
-const CollectionSkeleton = ({width, maxWidth, padding}) => {
+const CollectionSkeleton = ({ width, maxWidth, padding }) => {
   return (
     <div
       className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-      style={{ width, maxWidth, padding}}
+      style={{ width, maxWidth, padding }}
     >
       <div className="nft__item">
         <div className="author_list_pp">

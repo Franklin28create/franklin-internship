@@ -35,18 +35,19 @@ const Collection = ({
   useEffect(() => {
     if (expiryDate) {
       let intervalId = setInterval(getExpirationDate, 1000);
-      if(getExpirationDate()) {
+      if (getExpirationDate()) {
         setExpirationExists(true);
       }
       return () => clearInterval(intervalId);
     }
-
   }, []);
 
   return (
     <div
       className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
       style={{ width, maxWidth, padding }}
+      data-aos="fade-in"
+      data-aos-duration="500"
     >
       <div className="nft__item">
         <div className="author_list_pp">

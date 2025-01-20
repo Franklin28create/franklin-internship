@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TopSeller from "../UI/TopSeller";
 import Skeleton from "../UI/Skeleton";
+import Aos from "aos";
+import "aos/dist/aos.css";
+Aos.init();
 
 const TopSellers = () => {
   const [loading, setLoading] = useState(true);
@@ -25,12 +28,18 @@ const TopSellers = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Top Sellers</h2>
+              <h2 data-aos="zoom-in" data-aos-duration="400">
+                Top Sellers
+              </h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
           <div className="col-md-12">
-            <ol className="author_list">
+            <ol
+              className="author_list"
+              data-aos="fade-in"
+              data-aos-duration="400"
+            >
               {loading ? (
                 <>
                   {new Array(12).fill(0).map((_, index) => (
@@ -61,6 +70,7 @@ const TopSellers = () => {
                       authorName={seller.authorName}
                       authorId={seller.authorId}
                       price={seller.price}
+                      
                     />
                   ))}
                 </>

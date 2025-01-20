@@ -4,8 +4,10 @@ import Collection from "../UI/Collection";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import Skeleton from "../UI/Skeleton";
 import CollectionSkeleton from "../UI/CollectionSkeleton";
+import Aos from "aos";
+import "aos/dist/aos.css";
+Aos.init();
 
 const NewItems = () => {
   const [newItems, setNewItems] = useState([]);
@@ -27,7 +29,9 @@ const NewItems = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>New Items</h2>
+              <h2 data-aos="zoom-in" data-aos-duration="700">
+                New Items
+              </h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
@@ -36,6 +40,8 @@ const NewItems = () => {
             className="owl-theme"
             loop
             nav
+            data-aos="fade-up"
+            data-aos-duration="700"
             dots={false}
             key={loading}
             margin={8}
@@ -49,7 +55,14 @@ const NewItems = () => {
           >
             {loading ? (
               <>
-                {new Array(5).fill(0).map((_, i) => <CollectionSkeleton key={i} width="100%" maxWidth="100%" padding="0"/>)}
+                {new Array(5).fill(0).map((_, i) => (
+                  <CollectionSkeleton
+                    key={i}
+                    width="100%"
+                    maxWidth="100%"
+                    padding="0"
+                  />
+                ))}
               </>
             ) : (
               <>
