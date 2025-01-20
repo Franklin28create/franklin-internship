@@ -86,6 +86,7 @@ const ExploreItems = () => {
             id="loadmore"
             className="btn-main lead"
             onClick={() => setSliceLength(sliceLength + 4)}
+            data-aos="fade-up"
           >
             Load more
           </button>
