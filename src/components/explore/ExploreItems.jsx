@@ -12,8 +12,6 @@ const ExploreItems = () => {
   const [itemsList, setItemsList] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Franklin's branch code
-
   async function fetchExploreItems(filterValue) {
     if (filterValue) {
       setLoading(true);
