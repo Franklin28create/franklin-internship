@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Collection from "../UI/Collection";
 import CollectionSkeleton from "../UI/CollectionSkeleton";
 import axios from "axios";
+import Aos from "aos";
+import "aos/dist/aos.css";
+Aos.init();
 
 const ExploreItems = () => {
   const [itemsInitialLength, setItemsInitialLength] = useState(0);
@@ -43,6 +46,9 @@ const ExploreItems = () => {
           id="filter-items"
           defaultValue=""
           onChange={(event) => fetchExploreItems(event.target.value)}
+          data-aos="fade-in"
+          data-aos-duration="500"
+          data-aos-delay="300"
         >
           <option value="">Default</option>
           <option value="price_low_to_high">Price, Low to High</option>
